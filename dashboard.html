@@ -1,0 +1,187 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Gadget Store</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+    }
+    header {
+      background: #000428;
+      background: linear-gradient(to right, #004e92, #000428);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #0077ff;
+    }
+    .dashboard-container {
+      padding: 30px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #0077ff;
+      color: white;
+    }
+    button {
+      padding: 8px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button.delete {
+      background-color: #dc3545;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+  <script>
+    // Simulated quantum encryption function (mock for UI demonstration)
+    function quantumEncrypt(data) {
+      // Simulate lattice-based encryption with SHA-512 as placeholder
+      return CryptoJS.SHA512(data).toString();
+    }
+
+    function secureLoadDashboard() {
+      const sessionKey = localStorage.getItem('admin_session');
+      const encrypted = quantumEncrypt(sessionKey);
+
+      if (!sessionKey || encrypted !== localStorage.getItem('admin_auth_hash')) {
+        alert('Unauthorized access detected. Redirecting to login...');
+        window.location.href = 'login.html';
+      }
+    }
+
+    window.onload = secureLoadDashboard;
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard - Gadget Store</h1>
+  </header>
+
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#users">Users</a>
+    <a href="#orders">Orders</a>
+    <a href="index.html">Back to Store</a>
+  </nav>
+
+  <div class="dashboard-container">
+    <section id="products" class="section">
+      <h2>Manage Products</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Smartphone X9</td>
+            <td>$899</td>
+            <td>Personal Electronics</td>
+            <td>
+              <button>Edit</button>
+              <button class="delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="users" class="section">
+      <h2>Manage Users</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>mainadan</td>
+            <td>maishdan4940@gmail.com</td>
+            <td>Admin</td>
+            <td>
+              <button>Edit</button>
+              <button class="delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="orders" class="section">
+      <h2>Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>User</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#2345</td>
+            <td>mainadan</td>
+            <td>$1800</td>
+            <td>Shipped</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

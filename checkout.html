@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | Gadget Store</title>
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+  <div class="checkout-container">
+    <h1>Checkout</h1>
+    <form id="checkout-form">
+      <!-- Step 1: User Info -->
+      <div class="step active" id="step-1">
+        <h2>1. Customer Information</h2>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <button type="button" onclick="nextStep(1)">Next</button>
+      </div>
+
+      <!-- Step 2: Address -->
+      <div class="step" id="step-2">
+        <h2>2. Shipping Address</h2>
+        <input type="text" placeholder="Street Address" required>
+        <input type="text" placeholder="City" required>
+        <input type="text" placeholder="Country" required>
+        <button type="button" onclick="prevStep(2)">Back</button>
+        <button type="button" onclick="nextStep(2)">Next</button>
+      </div>
+
+      <!-- Step 3: Payment -->
+      <div class="step" id="step-3">
+        <h2>3. Payment Method</h2>
+        <label><input type="radio" name="payment" value="mpesa" required> M-Pesa</label>
+        <label><input type="radio" name="payment" value="card"> Credit/Debit Card</label>
+        <label><input type="radio" name="payment" value="crypto"> Crypto</label>
+        <div id="payment-details"></div>
+        <button type="button" onclick="prevStep(3)">Back</button>
+        <button type="submit">Complete Payment</button>
+      </div>
+    </form>
+    <div id="confirmation" class="hidden">
+      <h2>✅ Payment Confirmed</h2>
+      <p>Thank you for shopping with us!</p>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    function nextStep(step) {
+      document.getElementById(`step-${step}`).classList.remove('active');
+      document.getElementById(`step-${step + 1}`).classList.add('active');
+    }
+    function prevStep(step) {
+      document.getElementById(`step-${step}`).classList.remove('active');
+      document.getElementById(`step-${step - 1}`).classList.add('active');
+    }
+
+    document.querySelectorAll('input[name="payment"]').forEach(input => {
+      input.addEventListener('change', () => {
+        const value = input.value;
+        const details = document.getElementById('payment-details');
+        if (value === 'mpesa') {
+          details.innerHTML = '<input type="text" placeholder="M-Pesa Number">';
+        } else if (value === 'card') {
+          details.innerHTML = `
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Expiry Date">
+            <input type="text" placeholder="CVV">`;
+        } else if (value === 'crypto') {
+          details.innerHTML = '<p>Scan the QR below to pay with Bitcoin:</p><img src="images/crypto-qr.png" width="150">';
+        }
+      });
+    });
+
+    document.getElementById('checkout-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('checkout-form').classList.add('hidden');
+      document.getElementById('confirmation').classList.remove('hidden');
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+     background-image: url('../images/Gadget\ store.png');
+      margin: 0;
+      padding: 2rem;
+    }
+    .checkout-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    input[type="text"], input[type="email"], input[type="tel"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</body>
+</html>

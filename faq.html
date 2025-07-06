@@ -1,0 +1,66 @@
+<!-- faq.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | Gadget Store</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .accordion {
+      cursor: pointer;
+      padding: 15px;
+      background-color: #eee;
+      border: none;
+      outline: none;
+      text-align: left;
+      width: 100%;
+      transition: 0.4s;
+    }
+    .active, .accordion:hover { background-color: #ccc; }
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h2>Frequently Asked Questions</h2>
+
+  <button class="accordion">What is Gadget Store?</button>
+  <div class="panel">
+    <p>We are the #1 global electronics e-commerce platform.</p>
+  </div>
+
+  <button class="accordion">Do you ship internationally?</button>
+  <div class="panel">
+    <p>Yes! We ship to 200+ countries worldwide.</p>
+  </div>
+
+  <button class="accordion">How can I track my order?</button>
+  <div class="panel">
+    <p>Log in and use the tracking page in your dashboard.</p>
+  </div>
+
+  <h3>Contact Support</h3>
+  <form action="contact.php" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Message..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    }
+  </script>
+</body>
+</html>

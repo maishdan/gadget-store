@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart | Gadget Store</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+     background-image: url('../images/Gadget\ store.png');
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .cart {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 1rem 0;
+    }
+    .cart-item img {
+      height: 80px;
+      border-radius: 8px;
+    }
+    .cart-item-info {
+      flex-grow: 1;
+      padding: 0 1rem;
+    }
+    .cart-item-controls button {
+      padding: 6px 10px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .cart-total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .checkout-btn {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+      padding: 10px 20px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Shopping Cart</h1>
+  <div class="cart" id="cart"></div>
+  <div class="cart-total" id="total"></div>
+  <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartDiv = document.getElementById('cart');
+    const totalDiv = document.getElementById('total');
+
+    function renderCart() {
+      cartDiv.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartDiv.innerHTML = '<p>Your cart is empty.</p>';
+        totalDiv.textContent = '';
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        cartDiv.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p>KES ${item.price} x ${item.quantity}</p>
+            </div>
+            <div class="cart-item-controls">
+              <button onclick="removeItem(${index})">Remove</button>
+            </div>
+          </div>
+        `;
+      });
+
+      totalDiv.textContent = `Total: KES ${total.toFixed(2)}`;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function goToCheckout() {
+      window.location.href = 'checkout.html';
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

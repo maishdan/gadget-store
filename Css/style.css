@@ -1,0 +1,90 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+   background-image: url('../images/Gadget\ store.png');
+}
+header {
+    background: #1a1a1a;
+    color: white;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    
+
+    padding: 2em;
+    background-image: url('../images/Gadget\ store.png');
+    color: white;
+    text-align: center;
+}
+
+.categories {
+    padding: 2em;
+    text-align: center;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.category {
+    background: white;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background-image: url('../images/Gadget\ store.png');
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+.gadget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.gadget-item {
+  background: white;
+  padding: 1em;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.gadget-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.trust-badges {
+  display: flex;
+  justify-content: space-around;
+  margin: 2em 0;
+  font-size: 1.1em;
+}

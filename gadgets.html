@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Store | Your Tech Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/icon gadgets.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Store | Explore Top Gadgets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+           background-image: url('../images/Gadget\ store.png');
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #1a1a2e;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .category {
+            margin-top: 40px;
+        }
+
+        .category h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            border-bottom: 3px solid #0077ff;
+            padding-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #444;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 40px;
+            background-color: #1a1a2e;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Gadget Store</h1>
+        <p>Explore Innovative Technology from Around the World</p>
+    </header>
+
+    <!-- Gadget Categories -->
+    <div class="category">
+        <h2>Personal Electronics</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-jessbaileydesign-788946.jpg" alt="Smartphone">
+                <div class="caption">Smartphones</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-tdcat-437037.jpg" alt="Smartwatch">
+                <div class="caption">Smartwatches</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Photography</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-fujifilmusa-3497065.jpg" alt="Camera">
+                <div class="caption">Cameras</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-jack-redgate-333633-3069865.jpg" alt="Camera Lenses">
+                <div class="caption">Camera Lenses</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Gaming</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-cottonbro-3945688.jpg" alt="Gaming Console">
+                <div class="caption">Gaming Consoles</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-pngmariah-9281230.jpg" alt="Gaming Gear">
+                <div class="caption">Gaming Gear</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Smart Home Devices</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-robertkso-20323501.jpg" alt="Smart Speaker">
+                <div class="caption">Smart Speakers</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-jakubzerdzicki-29292011.jpg" alt="Smart Bulbs">
+                <div class="caption">Smart Lighting</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Communication Tools</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-kavin4666-9204671.jpg" alt="Headset">
+                <div class="caption">Headsets</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/walkie talkie.png" alt="Walkie Talkie">
+                <div class="caption">Walkie Talkies</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Entertainment Systems</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/10706485.png" alt="TV">
+                <div class="caption">Smart TVs</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/2201.jpg" alt="Home Theatre">
+                <div class="caption">Home Theatres</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Educational Tech</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-joshsorenson-1334597.jpg" alt="Tablet">
+                <div class="caption">Tablets</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-polina-zimmerman-3747478.jpg" alt="Learning Tools">
+                <div class="caption">Learning Devices</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Travel Gadgets</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-goumbik-518530.jpg" alt="Power Bank">
+                <div class="caption">Power Banks</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-castorlystock-3639030.jpg" alt="Travel Adapter">
+                <div class="caption">Travel Adapters</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Health Tech</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-pixabay-267391.jpg" alt="Fitness Tracker">
+                <div class="caption">Fitness Trackers</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-jx-_-443956759-19398651.jpg" alt="Air Purifier">
+                <div class="caption">Air Purifiers</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Utility Tools</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-steve-985117.jpg" alt="Flashlight">
+                <div class="caption">Flashlights</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/gadgets/pexels-sonny-vermeer-505472791-20480277.jpg" alt="Multitool">
+                <div class="caption">Multitools</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Gadget Store. All Rights Reserved. Powered by Daniwest Technologies.</p>
+    </footer>
+</body>
+
+</html>
